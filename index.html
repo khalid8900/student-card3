@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Card</title>
+<style>
+body { font-family: Arial, sans-serif; background:#f5f5f5; margin:0; padding:0; display:flex; justify-content:center; align-items:center; height:100vh;}
+.card { width:380px; background:#fff; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,.1); padding:20px; text-align:center;}
+.photo { width:90px; height:90px; border-radius:8px; margin:15px 0; object-fit:cover;}
+.row { margin:8px 0; font-size:16px; }
+.label { font-weight:bold; margin-right:5px;}
+.status.allowed { color: #1a8f3a; font-weight:bold; font-size:18px; margin-top:15px;}
+</style>
+<script>
+const data = {
+  ar: {
+    title: "بيانات الطالب",
+    nameLabel: "الاسم",
+    programLabel: "البرنامج",
+    batchLabel: "الرقم الجامعي",
+    levelLabel: "المستوى",
+    emailLabel: "البريد الإلكتروني",
+    locationLabel: "الموقع",
+    statusAllowed: "مسموح الدخول"
+  },
+  en: {
+    title: "Student Information",
+    nameLabel: "Name",
+    programLabel: "Program",
+    batchLabel: "Batch",
+    levelLabel: "Level",
+    emailLabel: "Student E-mail",
+    locationLabel: "Location",
+    statusAllowed: "Allowed to enter"
+  }
+};
+window.onload = () => {
+  const lang = navigator.language.startsWith('ar') ? 'ar' : 'en';
+  const t = data[lang];
+  document.getElementById('title').innerText = t.title;
+  document.getElementById('nameLabel').innerText = t.nameLabel + ":";
+  document.getElementById('programLabel').innerText = t.programLabel + ":";
+  document.getElementById('batchLabel').innerText = t.batchLabel + ":";
+  document.getElementById('levelLabel').innerText = t.levelLabel + ":";
+  document.getElementById('emailLabel').innerText = t.emailLabel + ":";
+  document.getElementById('locationLabel').innerText = t.locationLabel + ":";
+  document.getElementById('status').innerText = t.statusAllowed;
+};
+</script>
+</head>
+<body>
+<div class="card">
+  <h2 id="title">Student Information</h2>
+  <img class="photo" src="photo.jpg" alt="Student Photo">
+  <div class="row"><span id="nameLabel" class="label">Name:</span> خالد موسى حسين محمد</div>
+  <div class="row"><span id="programLabel" class="label">Program:</span> Information Technology (Bachelor)</div>
+  <div class="row"><span id="batchLabel" class="label">Batch:</span> AB/0646/2023/ITIB</div>
+  <div class="row"><span id="levelLabel" class="label">Level:</span> Two</div>
+  <div class="row"><span id="emailLabel" class="label">Student E-mail:</span> khaled.2021itib0190@ust.edu.sd</div>
+  <div class="row"><span id="locationLabel" class="label">Location:</span> Sudan - Omdurman</div>
+  <div class="row status allowed" id="status">Allowed to enter</div>
+</div>
+</body>
+</html>
